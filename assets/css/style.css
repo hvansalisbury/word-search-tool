@@ -1,0 +1,330 @@
+/* adjusts size of header texts */
+.message-header {
+  font-size: 1.4em;
+}
+/* removes margin spacing below p elements from bulma */
+.content p:not(:last-child) {
+  margin-bottom: 0px;
+}
+/* changes the font size of text in bulma css styling */
+.box {
+  font-size: 1.1em;
+}
+/* adjust size of search bar width when no words are searched */
+.blank-screen {
+  width: 50%;
+}
+/* adjusts size of search bar after words are searched */
+.noblank-screen {
+  width: 100%;
+}
+/* adjust the styling in the search area to allow sizing of search bar to fill container */
+#search-area {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+/* changes border color of input box to white */
+#input-box {
+  border-color: white;
+}
+/* allows form to strech all the way across the width of the container */
+#form-width {
+  width: 100%;
+}
+/* width of form to stretch across the container and margin changing to allow better spacing */
+#submit-form {
+  width: 100%;
+  margin: 1.5% auto;
+}
+/* container that has the word in focus and the results of the serach, adjust height, scroll bar */
+#focus-container {
+  height: 58.5vh;
+  overflow-y: auto;
+  font-weight: 500;
+}
+/* underlines title of search word */
+.main-title {
+  text-decoration: underline;
+}
+/* underlines the title of definition */
+#definition-title {
+  text-decoration: underline;
+}
+/* sets size and scroll effect of the 3 columns */
+.words-container {
+  height: 58.5vh;
+  overflow-y: auto;
+  font-weight: 500;
+}
+/* styling for the search button */
+#search-button {
+  background-color: white;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+/* magnifying glass icon size and fills container */
+#search-button img {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+}
+/* styling for dropdown menu */
+.dropdown-item {
+  font-size: 1.2em;
+  font-weight: 500;
+  background-color: aliceblue;
+  border: 1px solid lightseagreen;
+}
+/* when word is hovered over, it changes style to show it can be clicked */
+.dropdown-item-fix:hover {
+  background-color: lightseagreen;
+  color: aliceblue;
+  transition-duration: 400ms;
+  cursor: pointer;
+}
+/* overrides bulma css styling for dropdown menu */
+.dropdown-content-fix {
+  border-radius: 0;
+  box-shadow: 0;
+  padding: 0;
+  border: 0;
+}
+/* overrides bulma css styling for words in dropdown menu */
+.dropdown-item-fix {
+  background-color: aliceblue;
+  font-weight: 400;
+  color: black;
+  border: 0px;
+  font-size: 1em;
+  line-height: 1.5;
+  padding: 0 10px;
+  position: relative;
+  border-width: 0px;
+}
+/* offsets dropdown menu and sets scroll bar if length is beyond max length */
+.dropdown-menu {
+  overflow-y: auto;
+  left: -40px;
+}
+/* height of dropdown menu when before any search results */
+.dropdown-length1 {
+  max-height: 34vh;
+}
+/* height of dropdown menu when after search results */
+.dropdown-length2 {
+  max-height: 67vh;
+}
+/* hover over search results to show word can be click on and search */
+.js-modal-trigger:hover {
+  background-color: lightseagreen;
+  color: aliceblue;
+  transition-duration: 400ms;
+  cursor: pointer;
+}
+/* styling for when the site is loaded for clean simple look */
+.on-load {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+/* hides results container before searches are made, removed for search results */
+.hidden {
+  display: none;
+}
+/* hides modal before clicked */
+.modal {
+  display: none;
+}
+/* sets style for the title for the modal */
+.modal-card-title {
+  text-decoration: underline;
+  font-size: 1.5em;
+  font-weight: 500;
+}
+/* styling for heading to show it can be clicked to search */
+.modal-card-title:hover {
+  background-color: lightseagreen;
+  color: aliceblue;
+  transition-duration: 400ms;
+  cursor: pointer;
+}
+/* styling for tooltip that shows up when you hover over word */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+/* styling for the specific text that will show up in the tooltip */
+.tooltip .tooltip-text {
+  visibility: hidden;
+  width: max-content;
+  background-color: lightgray !important;
+  color: #505050 !important;
+  text-align: center;
+  padding: 5px 20px;
+  position: absolute;
+  font-size: 1em;
+  top: 105%;
+  box-shadow: 5px 5px 5px 5px darkgray;
+}
+/* pseudo element after the tooltip for styling */
+.tooltip .tooltip-text::after {
+  position: relative;
+  width: fit-content;
+  font-weight: 400;
+  bottom: 100%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+  background-color: whitesmoke;
+}
+/* hides tooltip */
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+}
+/* styling for pronunication text */
+#main-pronunciation {
+  font-size: 1.2em;
+  font-weight: 500;
+  cursor: pointer;
+}
+/* hover effect to show pronunciation is clickable */
+#main-pronunciation-hover:hover {
+  background-color: lightseagreen;
+  color: aliceblue;
+  transition-duration: 400ms;
+  cursor: pointer;
+}
+/* styling for pronunciation text in modal */
+#modal-pronunciation {
+  font-size: 1.2em;
+  font-weight: 500;
+  cursor: pointer;
+}
+/* hover effect to show pronunciation is clickable */
+#modal-pronunciation-hover:hover {
+  background-color: lightseagreen !important;
+  color: aliceblue !important;
+  transition-duration: 400ms !important;
+  cursor: pointer !important;
+}
+
+.speaker-img {
+  height: 1em;
+  width: 1em;
+}
+
+/* the following code are all media queries to adjust sizes to fit different screen sizes */
+@media screen and (max-width:1030px) {
+  .blank-screen {
+    width: 75%;
+  }
+
+  #focus-column {
+    width: 33%;
+  }
+}
+
+@media screen and (max-width:900px) {
+  #focus-column {
+    width: 25%;
+  }
+}
+
+@media screen and (max-width:780px) {
+  #focus-column {
+    width: 100%;
+  }
+
+  #focus-container {
+    max-height: 35vh;
+    height: auto;
+  }
+
+  .words-container {
+    max-height: 35vh;
+    height: auto;
+  }
+
+  .words-column {
+    width: 33vh;
+  }
+
+  #search-results {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media screen and (max-width:680px) {
+  .blank-screen {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width:500px) {
+  #search-area {
+    flex-direction: column;
+  }
+
+  #input-box {
+    padding: 5px 1em;
+  }
+
+  #search-history-container {
+    width: 100%;
+  }
+
+  #dropdown-container {
+    width: 100%;
+  }
+
+  #search-button {
+    padding: 5px;
+  }
+
+  #search-history-button {
+    width: 100%;
+  }
+
+  .words-column {
+    width: 95%;
+  }
+
+  #column-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #focus-column {
+    width: 95%;
+  }
+
+  #search-results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #column2 {
+    width: 100%;
+  }
+
+  .dropdown-menu {
+   left: 0px;
+  }
+
+  .dropdown-length2 {
+    max-height: 50vh;
+  }
+}
+
+@media screen and (max-height:475px) {
+  .dropdown-length2 {
+    max-height: 40vh;
+  }
+}

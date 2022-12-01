@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+  <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <title>Word Search</title>
+</head>
+
+<body id="body" class="on-load">
+
+  <header>
+    <nav class="navbar is-large" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand is-large">
+        <h1 class="navbar-item title is-1">Word Search</h1>
+      </div>
+    </nav>
+  </header>
+
+  <section id="search-section" class="blank-screen">
+    <div>
+      <div class="notification is-primary">
+        <div class="control has-icons-left has-icons-right">
+          <div id="search-area" class="container is-centered is-primary">
+            <div id="form-width"> <!-- removed class tooltip -->
+            <!-- <span class="tooltip-text">Click on hear the pronunciation.</span> -->
+            <form class="field has-addons" id="submit-form">
+
+              <div class="control is-expanded">
+                <input id="input-box" class="input" type="text" placeholder="type to search">
+              </div>
+              
+              <div class="control">
+                <button id="search-button" class="button is-primary is-light"><img src="assets/images/search.webp"></button>
+              </div>
+              
+            </form>
+          </div>
+
+            <div id="dropdown-container" class="dropdown is-hoverable">
+
+              <div id="search-history-container" class="dropdown-trigger">
+                <button id="search-history-button" class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                  <span>Search History</span>
+                  <span class="icon is-small">
+                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </button>
+              </div>
+
+              <div class="dropdown-menu dropdown-length1" id="dropdown-menu4" role="menu">
+                <div class="dropdown-content">
+                  <h4 class="dropdown-item">
+                  </h4>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="results-container" class="hidden">
+    <div class="column is-full is-primary">
+      <div id="column-container" class="columns">
+
+        <div id="focus-column" class="column is-one-half">
+          <article class="panel is-primary">
+            <article class="message is-primary">
+
+              <div class="message-header">
+                <p id="main-word">Word in focus</p>
+                <button id="delete-button" class="delete" aria-label="delete"></button>
+              </div>
+
+              <div id="focus-container" class="content is-normal p-3">
+
+                <div class="tooltip">
+                  <p id="main-pronunciation-hover">
+                    <img src="./assets/images/speaker.png" class="speaker-img">
+                    <span class="main-title" id="main-pronunciation"><strong>Pronunciation:</strong></span>
+                    <span class="tooltip-text">Click on hear the pronunciation.</span>
+                    <span id="main-pronunciation-container"></span>
+                   
+                  </p>
+
+                </div>
+
+                <div id="definition-main">
+                  <div id="main-frequency-container"></div>
+                  <div id="main-syllables-container"></div>
+                  <p id="definition-title"><strong>Definition(s): </strong></p>
+                  <div id="main-definitions-container"></div>
+                </div>
+
+              </div>
+
+            </article>
+          </article>
+        </div>
+
+        <div id="column2" class="column is-primary">
+          <div id="search-results" class="columns">
+
+            <div class="column words-column" id="synonym-column">
+              <div class="message-header" id="synonym-text">Synonyms</div>
+              <div id="synonym-container" class="box words-container"></div>
+            </div>
+
+            <div class="column words-column" id="rhyme-column">
+              <div class="message-header" id="rhyme-text">Rhymes</div>
+              <div id="rhyme-container" class="box words-container"></div>
+            </div>
+            <div class="column words-column" id="antonym-column">
+              <div class="message-header" id="antonym-text">Antonyms</div>
+              <div id="antonym-container" class="box words-container"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div id="modal-js-example" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+
+      <div class="modal-card">
+
+        <header class="modal-card-head">
+
+          <h1 class="modal-card-title tooltip">
+            <span id="modal-title-text">Modal Title</span>
+            <span class="tooltip-text">Click on the word to start a new search.</span>
+          </h1>
+        </header>
+
+        <section class="modal-card-body">
+
+          <div>
+            <p id="modal-pronunciation-hover" class="tooltip">
+              <img src="./assets/images/speaker.png" class="speaker-img">
+              <span class="modal-title"  id="modal-pronunciation"><strong>Pronunciation: </strong></span>
+              <span class="tooltip-text">Click to hear the pronunciation.</span>
+              <span id="modal-pronunciation-container"></span>
+            </p>
+            <div id="modal-frequency-container"></div>
+            <div id ="modal-syllables-container"></div>
+          </div>
+          <div id="definition-modal">
+            <p class='modal-title'><strong>Definition(s): </strong></p>
+            <div id="modal-definitions-container"></div>
+          </div>
+
+        </section>
+
+        <footer class="modal-card-foot"></footer>
+
+      </div>
+
+      <button id="modal-close-2" class="modal-close is-large" aria-label="close"></button>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous"></script>
+  <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
